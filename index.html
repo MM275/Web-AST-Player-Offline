@@ -6,7 +6,93 @@
     <meta name="description" content="Web-based player for AST audio files">
     <meta name="color-scheme" content="light dark" />
     <title>AST Player</title>
-    <link rel="stylesheet" href="style.css"/>
+    <style>
+	:root {
+    --content-color: light-dark(black, white);
+}
+
+body {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: var(--content-color);
+    background-color: light-dark(white, #222);
+}
+
+p {
+    line-height: 1.35;
+}
+
+.ast-control-container {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.ast-error-container {
+    background-color: light-dark(#FF9090, #C33333);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.progress-bar {
+    width: 100%;
+    margin: 0;
+}
+
+.square-button {
+    all: initial;
+    border-radius: 10%;
+    fill: var(--content-color);
+    stroke: var(--content-color);
+}
+
+.square-button:disabled {
+    opacity: 25%;
+}
+
+.square-button:enabled:hover {
+    background-color: light-dark(#00000020, #FFFFFF20);
+}
+
+.square-button:enabled:active {
+    background-color: light-dark(#00000040, #FFFFFF40);
+}
+
+.square-button:focus-visible {
+    outline: revert;
+}
+
+.playback-control-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.volume-control-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.volume-field {
+    margin: auto;
+    width: 3em;
+}
+
+.track-list {
+    list-style: none;
+    padding-left: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.track-list > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+</style>
 </head>
 <body>
     <div style="margin: 0 auto; width: 600px; max-width: 90%; min-width: 310px;">
